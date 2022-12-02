@@ -16,7 +16,7 @@ jobs:
           architecture: 'x64'
       - name: Install dependencies
         run: |
-          apt-get install automake \
+          sudo apt-get install automake \
             build-essential \
             libfuzzy-dev \
             libarchive-dev \
