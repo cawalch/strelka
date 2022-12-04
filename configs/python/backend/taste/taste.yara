@@ -30,6 +30,16 @@ rule browser_manifest
         all of them
 }
 
+rule bits_file
+{
+    meta:
+        type = "BITSAdmin DB File"
+    strings:
+        $a = { B6 BC 93 04 EF CD AB 89 }
+    condition:
+        $a at 0
+}
+
 rule cab_file {
     meta:
         type = "archive"
@@ -217,6 +227,20 @@ rule doc_subheader_file {
         type = "document"
     condition:
         uint32(0) == 0x00C1A5EC
+}
+
+rule excel4_file
+{
+    meta:
+        type = "excel4"
+    strings:
+        $excel4 = { 45 78 63 65 6c (20 34 | 34) } // Excel4 or Excel 4
+        $rels = /xl\/_rels\/workbook\.(xml|bin)\.rels/
+        $sheet = "xl/macrosheets"
+        $xlsstr = "xl/sharedStrings"
+    condition:
+        (uint32be(0) == 0xd0cf11e0 and $excel4) or
+        (uint32be(0) == 0x504b0304 and $rels and $sheet and $xlsstr)
 }
 
 rule mso_file {

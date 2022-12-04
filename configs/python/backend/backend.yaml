@@ -18,6 +18,11 @@ scanners:
   #        - 'application/msword'
   #        - 'olecf_file'
   #    priority: 5
+#  'ScanBase64':
+#    - positive:
+#        flavors:
+#          - 'base64_file'
+#      priority: 5
   'ScanBase64PE':
     - positive:
         flavors:
@@ -41,6 +46,11 @@ scanners:
           - 'application/x-bzip2'
           - 'bzip2_file'
       priority: 5
+  'ScanBITS':
+    - positive:
+        flavors:
+          - 'bits_file'
+      priority: 5
 #  'ScanCapa':
 #    - positive:
 #        flavors:
@@ -57,15 +67,15 @@ scanners:
       priority: 5
       options:
         extract_text: False
-  'ScanElf':
-    - positive:
-        flavors:
-          - 'application/x-object'
-          - 'application/x-executable'
-          - 'application/x-sharedlib'
-          - 'application/x-coredump'
-          - 'elf_file'
-      priority: 5
+#  'ScanElf':
+#    - positive:
+#        flavors:
+#          - 'application/x-object'
+#          - 'application/x-executable'
+#          - 'application/x-sharedlib'
+#          - 'application/x-coredump'
+#          - 'elf_file'
+#      priority: 5
   'ScanEmail':
     - positive:
         flavors:
@@ -235,6 +245,13 @@ scanners:
           - 'ini_file'
           - 'olecf_file'
       priority: 5
+  'ScanIso':
+    - positive:
+        flavors:
+          - 'iso_file'
+      priority: 5
+      options:
+        limit: 50
   'ScanJarManifest':
     - positive:
         flavors:
@@ -280,7 +297,6 @@ scanners:
           - 'application/x-xar'
           - 'xar_file'
           - 'arj_file'
-          - 'iso_file'
           - 'application/x-debian-package'
           - 'debian_package_file'
       priority: 5
@@ -538,6 +554,11 @@ scanners:
       priority: 5
       options:
         type: 'pem'
+  'ScanXl4ma':
+    - positive:
+        flavors:
+          - 'excel4_file'
+      priority: 5
   'ScanXml':
     - positive:
         flavors:

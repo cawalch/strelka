@@ -1,7 +1,48 @@
 # Changelog
 Changes to the project will be tracked in this file via the date of change.
 
-##2022-07-26
+## 2022-11-18
+### Added
+- Updated `ScanPDF` to include phone number collection (@Derekt2)
+
+## 2022-11-18
+### Added
+- Updated `ScanISO` to include additional metadata (e.g., Creation Date)
+- Updated `ScanISO` to include bucketing of of hidden directories.
+- Updated `ScanZip` to include known password extraction.
+- Updated `ScanZip` to display file names, sizes, and compression metrics. (@ryanohoro)
+
+### Changed
+- Updated `ScanPE` to fix issues with security certificate parsing.
+- Updated verisons / dependencies
+
+## 2022-10-17
+### Changed
+- Updated verisons / dependencies
+
+## 2022-09-23
+### Added
+- Added `ScanBITS` Windows BITS file scanner.
+- Added `ScanXL4MA` Excel 4 macro scanner. (Ryan Borre)
+- Added `AddIOC` IOC parsing to allow for IOC storage in root files. (Ryan Borre)
+
+### Changed
+- Updated `ScanPDF` with small fix. (Ryan Borre)
+
+## 2022-09-13
+### Added
+- Added `ScanISO` for ISO metadata collection and file extraction.
+- Updated `ScanLibarchive` in `backend.yml` to remove `iso_file`
+
+### Changed
+- Updated `ScanLibarchive` in `backend.yml` to remove `iso_file`.
+- Disabled `ScanELF` in `backend.yml` after observing excessive data extraction issues.
+
+## 2022-08-18
+### Changed
+- Updated README.
+
+## 2022-07-26
 ### Changed
 - Updated base docker image for `backend` and `mmrpc`.
 - Updated various dependencies.
