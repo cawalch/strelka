@@ -73,6 +73,7 @@ class Scanner(object):
             This is referenced in the scanner metadata.
         key: String that contains the scanner's metadata key.
             This is used to identify the scanner metadata in scan results.
+        event: Dictionary containing the result of scan
         backend_cfg: Dictionary that contains the parsed backend configuration.
         scanner_timeout: Amount of time (in seconds) that a scanner can spend
             scanning a file. Can be overridden on a per-scanner basis
@@ -85,6 +86,7 @@ class Scanner(object):
         self.key = inflection.underscore(self.name.replace('Scan', ''))
         self.scanner_timeout = backend_cfg.get('limits').get('scanner')
         self.coordinator = coordinator
+        self.event = dict()
         self.init()
 
     def init(self):
@@ -137,7 +139,7 @@ class Scanner(object):
         start = time.time()
         self.files = []
         self.flags = []
-        self.event = {}
+        self.event = dict()
         self.scanner_timeout = options.get('scanner_timeout',
                                            self.scanner_timeout)
 
